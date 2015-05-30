@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150528202716) do
     t.string "provider"
     t.string "uid"
     t.string "name"
+    t.string "token"
     t.string "tag"
   end
 

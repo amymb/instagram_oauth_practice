@@ -1,1 +1,29 @@
+<%= javascript_include_tag "application" %>
 Hello World
+
+<%if current_user%>
+  <div class = "token" data-token = "<%=current_user.token%>" >
+    <%= "Welcome #{current_user.name}"%>
+    <%= link_to "Sign Out", signout_path %>
+    <%=form_tag "#", :onSubmit => "return false" do %>
+      <%=label_tag :tag, "What tags would you like to see?"%>
+      <%= text_field_tag :tag %>
+      <%= submit_tag :tag %>
+    <% end %>
+  </div>
+<% else %>
+  <%= link_to "Sign in with Instagram", "/auth/instagram" %>
+<% end %>
+
+<div class = "photos">
+  <div id = "1"></div>
+  <div id = "2"></div>
+  <div id = "3"></div>
+  <div id = "4"></div>
+  <div id = "5"></div>
+  <div id = "6"></div>
+  <div id = "7"></div>
+  <div id = "8"></div>
+  <div id = "9"></div>
+  <div id = "10"></div>
+</div>
