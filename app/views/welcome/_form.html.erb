@@ -1,0 +1,4 @@
+<%= f.fields_for :album, @album, html: {class: "album-form", hidden: true} do |fa| %>
+  <%=fa.label :title, "Create Album with Title" %>
+  <%=fa.text_field :title, class: "form-input" %>
+<% end %>

@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get '/auth/instagram/callback', to: 'sessions#create'
   get 'signout', to: "sessions#destroy"
-  resources :user, only: [:show, :update]
+  resources :user, only: [:show] do
+    resources :albums, only: [:new, :create, :index, :show] do
+      resources :photos, only: [:index, :show]
+    end
+    resources :photos, only: [:new, :create]
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

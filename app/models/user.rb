@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-
+  has_many :albums
+  has_many :photos, through: :albums
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth["provider"]
