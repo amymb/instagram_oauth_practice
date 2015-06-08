@@ -1,8 +1,8 @@
 class PhotosController < ApplicationController
 
   def index
-    @album = Album.find(params(:album_id))
-    @photo = @album.photos
+    @user = current_user
+    @photos = @user.albums.find(params[:album_id]).photos
   end
 
 

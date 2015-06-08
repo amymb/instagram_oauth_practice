@@ -10,9 +10,9 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 .photo {
   width: 500px;
@@ -32,4 +32,9 @@ img {
 .popupform{
   display: none;
   z-index: 999;
+}
+
+.thumbnails{
+    max-height: 150px;
+    max-width: 200px;
 }

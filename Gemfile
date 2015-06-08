@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'bootstrap-sass', '~> 3.3.4'
+
 gem 'curb'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'gon'
@@ -10,7 +12,7 @@ gem 'rails', '4.2.1'
 gem 'pg'
 gem 'pry'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '>= 3.2'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

@@ -1,42 +1,31 @@
 <%= javascript_include_tag "application" %>
-Hello World
+<%=link_to "See My Albums", user_albums_path(@user) %>
 
 <%if current_user%>
-  <div class = "token" data-token = "<%=current_user.token%>" >
-    <%= "Welcome #{current_user.name}"%>
-    <%= link_to "Sign Out", signout_path %>
-    <%=form_tag "#", :onSubmit => "return false" do %>
-      <%=label_tag :tag, "What tags would you like to see?"%>
-      <%= text_field_tag :tag %>
-      <%= submit_tag :tag %>
-    <% end %>
-  </div>
+  <div class = "findandsave">
+    <div class = "token" data-token = "<%=current_user.token%>" >
+    </div>
+      <%= "Welcome #{current_user.name}"%>
+      <%= link_to "Sign Out", signout_path %>
+      <br>
+       <%=button_tag "Search by current location", class: "current-location-btn" %>
+       <div class ="location-options"></div>
+       <p> or </p>
+
+      <%=form_tag "#", :onSubmit => "return false" do %>
+        <%= text_field_tag :tag, "enter tag here" %>
+        <%= submit_tag "Search", class: "photo-search" %>
+      <% end %>
+      <%= render "form" %>
+    </div>
+
 <% else %>
   <%= link_to "Sign in with Instagram", "/auth/instagram" %>
 <% end %>
 
 <% if current_user.present?%>
-  <%= form_for [@user, @photo], url: user_photos_path(current_user), html: { class: "popupform", 'data-id'=> "#{@user.id}"} do |f|%>
-    <% if current_user.albums.any? %>
-      <%=f.label :album_id, "Select an album"%>
-      <%=f.collection_select(:album_id, @user.albums.all << @user.albums.new(:title => "New Album"), :id, :title, html: {class: "form-input"})%>
-      <div class = "create-album" hidden=true>
-        <%=f.fields_for :album, @album do |fa| %>
-          <%=fa.label :title, "Create Album with Title" %>
-          <%=fa.text_field :title, class: "form-input" %>
-        <% end %>
-      </div>
-    <% else %>
-      <%= f.fields_for :album, @album do |fa| %>
-        <%=fa.label :title, "Create Album with Title" %>
-        <%=fa.text_field :title, class: "form-input" %>
-      <% end %>
-    <% end %>
-    <%= f.label :name, "Photo name" %>
-    <%= f.text_field :name, class: "form-input"%>
-    <%=button_tag "Add Item", class: "form-submit" %>
-  <% end %>
+
 <% end %>
 
-<div class="photos">
+<div class="photos-slideshow">
 </div>

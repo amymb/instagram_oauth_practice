@@ -1,4 +1,21 @@
-<%= f.fields_for :album, @album, html: {class: "album-form", hidden: true} do |fa| %>
-  <%=fa.label :title, "Create Album with Title" %>
-  <%=fa.text_field :title, class: "form-input" %>
-<% end %>
+
+  <%= form_for [@user, @photo], url: user_photos_path(current_user), html: { class: "popupform", 'data-id'=> "#{@user.id}"} do |f|%>
+    <% if current_user.albums.any? %>
+      <%=f.label :album_id, "Select an album"%>
+      <%=f.collection_select(:album_id, @user.albums.all << @user.albums.new(:title => "New Album"), :id, :title)%>
+      <div class = "create-album" hidden=true>
+        <%=f.fields_for :album, @album do |fa| %>
+          <%=fa.label :title, "Create Album with Title" %>
+          <%=fa.text_field :title %>
+        <% end %>
+      </div>
+    <% else %>
+      <%= f.fields_for :album, @album do |fa| %>
+        <%=fa.label :title, "Create Album with Title" %>
+        <%=fa.text_field :title%>
+      <% end %>
+    <% end %>
+    <%= f.label :name, "Photo name" %>
+    <%= f.text_field :name%>
+    <%=button_tag "Add Item", class: "save-photo-btn" %>
+  <% end %>
