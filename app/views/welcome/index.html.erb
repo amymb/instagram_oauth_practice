@@ -1,7 +1,7 @@
 <%= javascript_include_tag "application" %>
-<%=link_to "See My Albums", user_albums_path(@user) %>
 
 <%if current_user%>
+<%=link_to "See My Albums", user_albums_path(@user) %>
   <div class = "findandsave">
     <div class = "token" data-token = "<%=current_user.token%>" >
     </div>
