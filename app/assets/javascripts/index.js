@@ -51,12 +51,12 @@ $(document).ready(function(){
 
     function showPosition(position) {
       var latLong = "lat=" + position.coords.latitude + "&lng=" + position.coords.longitude;
-      console.log('https://api.instagram.com/v1/media/search?' + latLong + "&min_timestamp=" +  (Date.now()/1000-1000*86400) + '&max_timestamp='+ Date.now()/1000 +'&distance=20&count=33&access_token=' + token + "&callback=callbackFunction")
+      console.log('https://api.instagram.com/v1/media/search?' + latLong + "&min_timestamp=" +  (Date.now()/1000-1000*86400) + '&max_timestamp='+ Date.now()/1000 +'&distance=20&count=50&access_token=' + token + "&callback=callbackFunction")
         $.ajax({
           type: "GET",
           dataType: "jsonp",
           jsonp: "callback",
-          url: 'https://api.instagram.com/v1/media/search?' + latLong+ '&min_timestamp=' + (Date.now()/1000-1000*86400)+ '&max_timestamp='+ Date.now()/1000 +'&distance=15&count=33&access_token=' + token + "&callback=callbackFunction",
+          url: 'https://api.instagram.com/v1/media/search?' + latLong+ '&min_timestamp=' + (Date.now()/1000-1000*86400)+ '&max_timestamp='+ Date.now()/1000 +'&distance=15&count=50&access_token=' + token + "&callback=callbackFunction",
           success: function(data){
             var images = data["data"];
             if(images.length){
