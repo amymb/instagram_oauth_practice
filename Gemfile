@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'bootstrap-sass', '~> 3.3.4'
 
 gem 'curb'
+gem 'rails_12factor', '~> 0.0.3'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'gon'
 gem 'omniauth-instagram', '~> 1.0.1'
