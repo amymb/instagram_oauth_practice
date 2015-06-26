@@ -14,6 +14,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  background-image: url('19137866775_c0eba5f7d0_o.jpg');
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  background-attachment: fixed;
+  background-position: center;
+}
+
 .photo {
   width: 500px;
   height: 500px;
