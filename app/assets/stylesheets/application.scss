@@ -33,23 +33,13 @@ button,
   position: relative;
 }
 
-img {
-  width: 500px;
-  height: 500px;
-  position: absolute;
-  left: 80;
-  top: 80;
-}
 
 .popupform{
   display: none;
   z-index: 999;
 }
 
-.thumbnails{
-    max-height: 150px;
-    max-width: 200px;
-}
+
 
 .photos-slideshow{
   opacity: 1.0;
