@@ -2,6 +2,8 @@
   <a href='/user/<%=current_user.id%>/albums/<%=album.id%>/photos'>
     <img src = '<%=album.photos.first.url%>' class = "thumbnails" id = "album-cover">
     <br>
-    <%= album.title %>
+    <div class = 'album'>
+      <%= album.title %>
+    </div>
   </a>
 <% end %>

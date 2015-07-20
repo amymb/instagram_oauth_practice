@@ -16,10 +16,14 @@
 
 body {
   background-image: url('19137866775_c0eba5f7d0_o.jpg');
-  opacity: 0.6;
-  filter: alpha(opacity=60);
   background-attachment: fixed;
   background-position: center;
+}
+
+input,
+button,
+.navbar{
+  opacity: 0.6;
 }
 
 .photo {
@@ -45,4 +49,12 @@ img {
 .thumbnails{
     max-height: 150px;
     max-width: 200px;
+}
+
+.photos-slideshow{
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+  position: fixed;
+  left: 50%;
+
 }
