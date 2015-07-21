@@ -1,0 +1,19 @@
+<%if current_user%>
+  <div class="row">
+  <%@albums.each do |album| %>
+  <%if album.photos.first != nil%>
+    <div class="col-xs-6 col-md-3">
+      <div class="thumbnail">
+        <a href='/user/<%=current_user.id%>/albums/<%=album.id%>/photos' class="thumbnail"]>
+            <img src='<%=album.photos.first.url%>' alt="...">
+        </a>
+        <div class="caption">
+          <h5>Album: <%=album.title%></h5>
+
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%end%>
+  </div>
+<%end%>
