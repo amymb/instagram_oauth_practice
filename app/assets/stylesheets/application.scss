@@ -22,15 +22,9 @@ body {
 
 input,
 button,
+.footer,
 .navbar{
   opacity: 0.6;
-}
-
-.photo {
-  width: 500px;
-  height: 500px;
-  margin: 80 auto;
-  position: relative;
 }
 
 
@@ -39,12 +33,20 @@ button,
   z-index: 999;
 }
 
-
-
-.photos-slideshow{
+.slideshow-photo {
   opacity: 1.0;
   filter: alpha(opacity=100);
   position: fixed;
-  left: 50%;
+  left: 30%;
+  border: 20px solid white;
+  margin-bottom: 40px;
 
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #f5f5f5;
 }

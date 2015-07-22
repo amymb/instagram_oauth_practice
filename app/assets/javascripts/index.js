@@ -64,7 +64,7 @@ $(document).ready(function(){
             if(images.length){
               var urls = images.map(function(value){return value["images"]["standard_resolution"]["url"]});
               for(var i = 0; i< urls.length; i++){
-                var newPhoto = "<img src=" + urls[i] + " id ='photo"+i +"'/>"
+                var newPhoto = "<img src=" + urls[i] + " id ='photo"+i + "' class= 'slideshow-photo'/>"
                 $(".photos-slideshow").append(newPhoto);
               }
               var slides = $(".photos-slideshow img");

@@ -30,7 +30,6 @@
     <div class = "findandsave">
       <div class = "token" data-token = "<%=current_user.token%>" ></div>
 
-      <br>
       <%=button_tag "Search by current location", class: "current-location-btn" %>
       <div class ="location-options"></div>
       <p> or </p>
@@ -45,6 +44,9 @@
   <div class="photos-slideshow">
   </div>
 </div>
+<footer class ="footer">
+  <div class ="container"></div>
+</footer>
 
 
 
@@ -59,8 +61,7 @@
         <%= render "album"%>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" >Ok</button>
       </div>
     </div>
   </div>
