@@ -40,7 +40,9 @@ $(document).ready(function(){
   var locationIds;
   $(".location-options").empty();
 
-  $(".current-location-btn").on('click', function(){
+  $(".current-location-btn").on('click', function(e){
+    e.preventDefault();
+    e.stopImmediatePropagation();
     function getLocation() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -75,50 +77,12 @@ $(document).ready(function(){
       }
     getLocation()
   });
-  //     $.ajax({
-  //       type: "GET",
-  //       dataType: "jsonp",
-  //       jsonp : "callback",
-  //       url: 'https://api.instagram.com/v1/locations/search?' + latLong +'&access_token=' + token + "&callback=callbackFunction",
-  //       success: function(data){
-  //         locationIds = data["data"].map(function(value){
-  //           return {id: value["id"], name: value["name"]};
-  //         });
-  //         for(var i = 0; i < locationIds.length; i++){
-  //           $(".location-options").append("<br><button class='location-button' data-location=" +locationIds[i]["id"]+">" + locationIds[i]["name"] + "</button><br>");
-  //         }
-  //       }
-  //     })
-  //   }
-  //   getLocation();
-  // })
-  //
-  // $(document).on('click', '.location-button', function(){
-  //   $(".photos-slideshow").empty();
-  //   console.log('https://api.instagram.com/v1/locations/' + $(this).data("location") +'/media/recent?&access_token=' + token + "&callback=callbackFunction")
-  //   $.ajax({
-  //     type: "GET",
-  //     dataType: "jsonp",
-  //     jsonp : "callback",
-  //     url: 'https://api.instagram.com/v1/locations/' + $(this).data("location") +'/media/recent?&access_token=' + token + "&callback=callbackFunction",
-  //     success: function(data){
-  //       var images = data["data"];
-  //       if(images){
-  //         var urls = images.map(function(value){return value["images"]["standard_resolution"]["url"]});
-  //         for(var i = 0; i< urls.length; i++){
-  //           var newPhoto = "<img src=" + urls[i] + " id ='photo"+i +"'/>";
-  //           $(".photos-slideshow").append(newPhoto);
-  //         }
-  //         var slides = $(".photos-slideshow img");
-  //         slideshow(slides).startSlideshow();
-  //       }else{
-  //         alert("No images with that tag available");
-  //       }
-  //     }
-  //   })
 
 
-  $(".photo-search").on('click', function(){
+
+  $(".photo-search").on('click', function(e){
+    e.preventDefault();
+    e.stopImmediatePropagation();
     var tagName = $("input:text").val();
     $(".popupform").hide()
     $(".photos-slideshow").empty();
@@ -133,7 +97,7 @@ $(document).ready(function(){
         if(images){
           var urls = images.map(function(value){return value["images"]["standard_resolution"]["url"]});
           for(var i = 0; i< urls.length; i++){
-            var newPhoto = "<img src=" + urls[i] + " id ='photo"+i +"'/>";
+            var newPhoto = "<img src=" + urls[i] + " id ='photo" + i + " class= 'slideshow-photo'/>";
             $(".photos-slideshow").append(newPhoto);
           }
           var slides = $(".photos-slideshow img");
